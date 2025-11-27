@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{% if task %}Edit Task{% else %}New Task{% endif %}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="title" style="font-weight: bold; display: block; margin-bottom: 10px;">Task Title:</label>
+    <input type="text" id="title" name="title" value="{{ task.title|default:'' }}" required autofocus>
+
+    <div style="text-align: right;">
+        <a href="{% url 'task_list' %}" class="btn" style="background-color: #ccc;">Cancel</a>
+        <button type="submit" class="btn">Save Task</button>
+    </div>
+</form>
+{% endblock %}

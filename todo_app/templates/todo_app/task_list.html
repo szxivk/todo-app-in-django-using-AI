@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="margin-bottom: 20px; text-align: right;">
+    <a href="{% url 'task_create' %}" class="btn">Add New Task</a>
+</div>
+
+<ul>
+    {% for task in tasks %}
+    <li class="{% if task.completed %}completed{% endif %}">
+        <span>{{ task.title }}</span>
+        <div class="actions">
+            <form method="post" action="{% url 'task_update' task.pk %}" style="display:inline;">
+                {% csrf_token %}
+                <input type="hidden" name="completed" value="true">
+                <button type="submit" class="btn">
+                    {% if task.completed %}Undo{% else %}Done{% endif %}
+                </button>
+            </form>
+            <a href="{% url 'task_update' task.pk %}" class="btn" style="background-color: #ffff00;">Edit</a>
+            <form method="post" action="{% url 'task_delete' task.pk %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    </li>
+    {% empty %}
+    <li>No tasks yet. Get to work!</li>
+    {% endfor %}
+</ul>
+{% endblock %}
