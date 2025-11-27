@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,10 @@
         :root {
             --bg-color: #f0f0f0;
             --text-color: #000;
-            --primary-color: #ff00ff; /* Magenta */
-            --secondary-color: #00ffff; /* Cyan */
+            --primary-color: #ff00ff;
+            /* Magenta */
+            --secondary-color: #00ffff;
+            /* Cyan */
             --border-width: 4px;
             --shadow-offset: 6px;
         }
@@ -32,7 +35,9 @@
             padding: 20px;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             text-transform: uppercase;
             border-bottom: var(--border-width) solid var(--text-color);
             padding-bottom: 10px;
@@ -63,6 +68,13 @@
             transition: all 0.1s;
         }
 
+        .btn:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--text-color);
+        }
+
         .btn:active {
             transform: translate(2px, 2px);
             box-shadow: 2px 2px 0px var(--text-color);
@@ -73,7 +85,28 @@
             color: #fff;
         }
 
-        input[type="text"], textarea {
+        .btn-danger:hover {
+            background-color: #cc0000;
+            color: #fff;
+        }
+
+        .btn-warning {
+            background-color: #ffff00;
+            color: #000;
+        }
+
+        .btn-warning:hover {
+            background-color: #e6e600;
+            color: #000;
+        }
+
+        .btn-done:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        input[type="text"],
+        textarea {
             width: 100%;
             padding: 10px;
             border: var(--border-width) solid var(--text-color);
@@ -118,6 +151,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -129,4 +163,5 @@
         </main>
     </div>
 </body>
+
 </html>

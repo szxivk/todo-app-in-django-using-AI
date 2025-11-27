@@ -13,11 +13,11 @@
             <form method="post" action="{% url 'task_update' task.pk %}" style="display:inline;">
                 {% csrf_token %}
                 <input type="hidden" name="completed" value="true">
-                <button type="submit" class="btn">
+                <button type="submit" class="btn btn-done">
                     {% if task.completed %}Undo{% else %}Done{% endif %}
                 </button>
             </form>
-            <a href="{% url 'task_update' task.pk %}" class="btn" style="background-color: #ffff00;">Edit</a>
+            <a href="{% url 'task_update' task.pk %}" class="btn btn-warning">Edit</a>
             <form method="post" action="{% url 'task_delete' task.pk %}" style="display:inline;">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger">Delete</button>
